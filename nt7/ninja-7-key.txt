@@ -1,2 +1,21 @@
 Multi-broker Key:
 AC64-CDCC-56C4-96BC-9305-5AA2-BCD3-8B3A
+
+NT7 download:
+www.ninjatrader.com/ninjatrader/nt7/NinjaTrader.Install.msi
+
+https://ninjatrader.com/support/helpGuides/nt7/
+
+https://ninjatrader.com/support/helpGuides/nt7/?functions.htm
+
+Multi-broker Key:
+AC64-CDCC-56C4-96BC-9305-5AA2-BCD3-8B3A
+
+
+FXCM forex live data demo acc:
+Your Personal Login Details
+Login: 701050405
+Password: 2506
+
+From Forex.com, Your free to use NinjaTrader license key for live trading through NinjaTrader Brokerage is included below: 
+6B97-9C60-6563-4C8D-8F9D-FDA6-2048-710E	
