@@ -1,0 +1,1 @@
+document.write('<scr'+'ipt type="text/javascript" src="https://g.adspeed.net/ad.php?do=js&zid=83533&oid=8280&wd=728&ht=90&target=_blank&cb='+Math.random()+'&ref='+escape(document.referrer.substr(0,255))+'&uri='+escape(document.URL.substr(0,255))+'"></sc'+'ript>');

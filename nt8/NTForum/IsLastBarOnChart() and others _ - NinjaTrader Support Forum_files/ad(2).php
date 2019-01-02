@@ -1,0 +1,5 @@
+var asdate=new Date();var q='&tz='+asdate.getTimezoneOffset()/60 +'&ck='+(navigator.cookieEnabled?'Y':'N') +'&jv='+(navigator.javaEnabled()?'Y':'N') +'&scr='+screen.width+'x'+screen.height+'x'+screen.colorDepth +'&z='+Math.random() +'&x=0.0092060565948486';var c='';
+c+='<'+'a href="https://g.adspeed.net/ad.php?do=clk&aid=306394&zid=83533&t=1546409662&auth=78770b4467db447a7d7bbd563663a3c5" target="_blank" ><'+'img title="MTPredictor-Vendor-728x90.png" style="border:0px;max-';
+c+='width:100%;height:auto;" src="https://ninjatrader.com/VendorAds/728x90/MTPredictor-Vendor-728x90.png" alt="MTPredictor-Vendor-728x90.png" width="728" height="90" /><'+'/a>';
+document.write(c);
+document.write('<div style="position:absolute;left:0px;top:0px;visibility:hidden;"><img src="https://g.adspeed.net/ad.php?do=imp&aid=306394&zid=83533&t=1546409662&auth=78770b4467db447a7d7bbd563663a3c5&oid=8280&wd=728&ht=90&ref=https%3A%2F%2Fninjatrader.com%2Fsupport%2Fforum%2Fforum%2Fninjatrader-8%2Findicator-development&uri=https%3A%2F%2Fninjatrader.com%2Fsupport%2Fforum%2Fforum%2Fninjatrader-8%2Findicator-development%2F68351-islastbaronchart-and-others" alt="i" width="1" height="1" /></div>');

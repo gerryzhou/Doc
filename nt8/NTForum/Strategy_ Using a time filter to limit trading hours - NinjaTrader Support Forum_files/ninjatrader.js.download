@@ -1,0 +1,160 @@
+// adds noreferrer rel tag to all NTE links so downloads work
+$(function(){
+	$('a[href*="ninjatraderecosystem"]').each(function() {
+	    $(this).attr('rel', 'noreferrer');
+	});
+});
+//modal stuff
+var modal = (function(){
+  var 
+  method = {},
+  $overlay,
+  $modal,
+  $content,
+  $close;
+
+  // Center the modal in the viewport
+  method.center = function () {
+    var top, left;
+
+    top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2 - 25;
+    left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+
+    $modal.css({
+      top:top + $(window).scrollTop(), 
+      left:left + $(window).scrollLeft()
+    });
+  };
+
+  // Open the modal
+  method.open = function (settings) {
+    $content.empty().append(settings.content);
+
+    $modal.css({
+      width: settings.width || 'auto', 
+      height: settings.height || 'auto'
+    });
+
+    method.center();
+    $(window).bind('resize.modal', method.center);
+    $modal.fadeIn('fast');
+    $overlay.fadeIn('fast');
+  };
+
+  // Close the modal
+  method.close = function () {
+    $modal.hide();
+    $overlay.hide();
+    $content.empty();
+    $(window).unbind('resize.modal');
+  };
+
+  // Generate the HTML and add it to the document
+  $overlay = $('<div id="overlay"></div>');
+  $modal = $('<div id="modal"></div>');
+  $content = $('<div id="mContent"></div>');
+  $close = $('<a id="close" href="#">X</a>');
+
+  $modal.hide();
+  $overlay.hide();
+  $modal.append($content, $close);
+
+  $(document).ready(function(){
+    $('body').append($overlay, $modal);           
+  });
+
+  $close.click(function(e){
+    e.preventDefault();
+    method.close();
+  });
+
+  return method;
+}());
+
+//vendor signature links
+$(document).on('click','a.external',function(e){
+	var link = $(this).attr('href');
+    var linkText = $(this).text();
+    var msg = '<div class="contentWrap"><h3>Attention!</h3><p>You are now leaving a website owned by NinjaTrader, LLC. Neither NinjaTrader, LLC, or any of its affiliates has endorsed or recommended for use any product, service or statement offered or presented in the site you are about to visit. NinjaTrader, LLC is not responsible for the accuracy and content of the website or service offered by the company you are about to visit. Please read additional disclosures at bottom of this site before continuing. By clicking the button below, I confirm to have read and understood the statement above.</p><p class="btnCenter"><a href="'+ link + '" target="_blank" class="redFlat externalButton">Agree &amp; Continue</a></p></div>';
+
+    modal.open({content: msg});
+    e.preventDefault();
+})
+
+$(document).on('click', '.externalButton', function(){
+  modal.close();
+});
+
+//iframed signature click functions
+$('#sigFrame').load(function(){
+
+  var iframe = $('#sigFrame').contents();
+
+  iframe.find("a.external").click(function(e){
+    var link = $(this).attr('href');
+    var linkText = $(this).text();
+    var msg = '<div class="contentWrap"><h3>Attention!</h3><p>You are now leaving a website owned by NinjaTrader, LLC. Neither NinjaTrader, LLC, or any of its affiliates has endorsed or recommended for use any product, service or statement offered or presented in the site you are about to visit. NinjaTrader, LLC is not responsible for the accuracy and content of the website or service offered by the company you are about to visit. Please read additional disclosures at bottom of this site before continuing. By clicking the button below, I confirm to have read and understood the statement above.</p><p class="btnCenter"><a href="'+ link + '" target="_blank" class="redFlat externalButton">Agree &amp; Continue</a></p></div>';
+
+    modal.open({content: msg});
+    e.preventDefault();
+  });
+});
+// home page 120x600 ads
+$(function(){
+    var adLink120 = $(".adSlot_120 a").attr("href");
+    console.log(adLink120);
+
+    $('.linkCloak_120').click(function(e){
+        var msg = '<div class="contentWrap"><h3>Attention!</h3><p>You are now leaving a website owned by NinjaTrader, LLC. Neither NinjaTrader, LLC, or any of its affiliates has endorsed or recommended for use any product, service or statement offered or presented in the site you are about to visit. NinjaTrader, LLC is not responsible for the accuracy and content of the website or service offered by the company you are about to visit. Please read additional disclosures at bottom of this site before continuing. By clicking the button below, I confirm to have read and understood the statement above.</p><p class="btnCenter"><a href="'+ adLink120 + '" target="_blank" class="redFlat externalButton">Agree &amp; Continue</a></p></div>';
+
+    modal.open({content: msg});
+    e.preventDefault();
+    });
+});
+// thread page 728x90 ads - images
+$(function(){
+    var adLink728 = $(".adSlot_728_P a").attr("href");
+    // alert(adLink728);
+
+    $('.linkCloak_728_P').click(function(e){
+        var msg = '<div class="contentWrap"><h3>Attention!</h3><p>You are now leaving a website owned by NinjaTrader, LLC. Neither NinjaTrader, LLC, or any of its affiliates has endorsed or recommended for use any product, service or statement offered or presented in the site you are about to visit. NinjaTrader, LLC is not responsible for the accuracy and content of the website or service offered by the company you are about to visit. Please read additional disclosures at bottom of this site before continuing. By clicking the button below, I confirm to have read and understood the statement above.</p><p class="btnCenter"><a href="'+ adLink728 + '" target="_blank" class="redFlat externalButton">Agree &amp; Continue</a></p></div>';
+
+    modal.open({content: msg});
+    e.preventDefault();
+    });
+});
+//new home page ads
+//top
+$(function(){
+    var adLink728Sponsored = $("a.external").attr("href");
+    // alert(adLink728);
+
+    $('.linkCloak_728').click(function(e){
+        var msg = '<div class="contentWrap"><h3>Attention!</h3><p>You are now leaving a website owned by NinjaTrader, LLC. Neither NinjaTrader, LLC, or any of its affiliates has endorsed or recommended for use any product, service or statement offered or presented in the site you are about to visit. NinjaTrader, LLC is not responsible for the accuracy and content of the website or service offered by the company you are about to visit. Please read additional disclosures at bottom of this site before continuing. By clicking the button below, I confirm to have read and understood the statement above.</p><p class="btnCenter"><a href="'+ adLink728Sponsored + '" target="_blank" class="redFlat externalButton">Agree &amp; Continue</a></p></div>';
+
+    modal.open({content: msg});
+    e.preventDefault();
+    });
+});
+//bottom 
+$(function(){
+    var adLink728Sponsored_B = $(".adSlot_728Sponsored_B a.external").attr("href");
+    // alert(adLink728);
+
+    $('.linkCloak_728_B').click(function(e){
+        var msg = '<div class="contentWrap"><h3>Attention!</h3><p>You are now leaving a website owned by NinjaTrader, LLC. Neither NinjaTrader, LLC, or any of its affiliates has endorsed or recommended for use any product, service or statement offered or presented in the site you are about to visit. NinjaTrader, LLC is not responsible for the accuracy and content of the website or service offered by the company you are about to visit. Please read additional disclosures at bottom of this site before continuing. By clicking the button below, I confirm to have read and understood the statement above.</p><p class="btnCenter"><a href="'+ adLink728Sponsored_B + '" target="_blank" class="redFlat externalButton">Agree &amp; Continue</a></p></div>';
+
+    modal.open({content: msg});
+    e.preventDefault();
+    });
+});
+
+//user app submission page warning
+$(function(){
+	// if($('body').hasClass('page171')){
+	if($('body').hasClass('page191')){
+		$('a#close').hide();
+		var msg = '<h3>Attention!</h3><ol><li>1. You <strong>MAY ONLY</strong> post NinjaScript code created by you personally and which you are authorized to publish publicly. By submitting NinjaScript code in this forum you are representing and warranting to NinjaTrader, LLC that the original developer/creator/author if not you personally is identified accurately and you have full permission/authorization to publicly publish all such code. You agree to fully indemnify and hold harmless NinjaTrader, LLC and its affiliates from and against all consequences if any of the foregoing is not true.</li><li>2. You <strong>MAY ONLY</strong> post unprotected code where the source code is fully disclosed.</li><li>3. You <strong>MAY ONLY</strong> post files in the NinjaScript Archive File (.zip) format which can be created via File &gt; Utilities &gt; Export NinjaScript menu.</li><li>4. You <strong>MAY NOT</strong> post protected files (DLLs) or any NinjaScript code that references external DLL&rsquo;s.</li><li>5. NinjaTrader, LLC has the right to remove any submissions for any reason at any time.</li><li>6. If you post any code that does not belong to you, or the publication of which would constitute an infringement of any kind on the rights of others, or which is intended to be defamatory, abusive, or offensive, you agree to fully indemnify and hold harmless NinjaTrader, LLC and its affiliates from and against any claims, losses, liabilities and expenses that result, and, without limiting any other rights or remedies NinjaTrader, LLC may have against you, you will lose all privileges to participate and contribute to this forum.</li><li>7. By installing, using in whole or in part any code posted in this forum you agree to fully indemnify and hold harmless NinjaTrader, LLC and its affiliates from and against any claims, losses, liabilities and expenses that may be incurred as a result having downloaded and/or used any or all of the available code.</li></ol><p class="btnCenter"><a class="greenFlat externalButton" style="margin-right:32px">I AGREE</a><a href="/support/forum/" class="redFlat externalButton">I DISAGREE</a></p>';
+		modal.open({content:msg, width:"650px"});
+	}
+});
